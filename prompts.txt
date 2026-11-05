@@ -1,0 +1,76 @@
+PROMPT 1
+
+Help me plan an accounts payable review for a fictional business, as of October 31, 2026. Do not create files yet. Use only the data below; do not search my work files, email, or the web. All amounts are USD. This is a practice review, not payment authorization.
+
+RowID,VendorID,Vendor,InvoiceNo,DueDate,AmountUSD,Approval,PaymentStatus
+AP001,V001,Northstar Packaging,INV-1042,2026-10-20,12000,Approved,Unpaid
+AP002,V002,Harbor Freight Co,F-883,2026-10-31,4500,Approved,Unpaid
+AP003,V003,Clearview IT,MS-210,2026-11-05,3200,Approved,Unpaid
+AP004,V004,Elm Facilities,INV-77,2026-10-25,2400,Pending,Unpaid
+AP005,V005,Cedar Supplies,CS-501,2026-10-15,1800,Approved,Unpaid
+AP006,V005,Cedar Supplies,CS-501,2026-10-15,1800,Approved,Unpaid
+AP007,V006,Pine Consulting,PC-009,2026-10-10,6500,Approved,Paid
+AP008,V007,Lake Office,INV-77,2026-10-28,900,Approved,Unpaid
+AP009,V008,Beacon Safety,BS-38,2026-10-30,0,Approved,Unpaid
+AP010,V009,Meadow Services,MD-615,2026-10-31,5100,Pending,Unpaid
+
+Keep all ten source rows, including both potential duplicates. A duplicate is the same VendorID AND InvoiceNo; trim spaces and ignore case for this comparison. Do not identify duplicates from InvoiceNo alone.
+
+Assign exactly one status to each row, using this priority:
+1. PaymentStatus Paid: Already paid.
+2. AmountUSD zero: No amount.
+3. Duplicate key: Duplicate hold for EVERY row with that key.
+4. Approval other than Approved: Approval hold.
+5. DueDate after October 31, 2026: Not due.
+6. Otherwise: Ready for review. Due on October 31 counts as due.
+
+I want an Excel workbook with an unchanged Source sheet and a Review sheet containing the as-of date, a status summary, and row-level results with reasons. Also plan a one-page Word briefing for an AP manager using the same results. Retain the full source-row amount total as an import control, but do not describe it as the true liability balance because it includes paid and potentially duplicated rows. Never send messages or initiate payments.
+
+Restate the rules and propose the deliverables. Flag any ambiguity before building.
+
+PROMPT 2
+
+Create the agreed files now: ap-review.xlsx and ap-briefing.docx.
+
+In Excel, put Review first and Source second. Preserve all ten original rows and all original field values in Source. On Review, put one editable as-of date, initially October 31, 2026, above the results. Use actual Excel dates and numeric amounts. Use formulas for the duplicate count, status, status counts, status amounts, and reconciliation. Keep the formulas understandable and show the duplicate comparison key. A row's reason must explain its assigned status. Include RowID so I can trace every result back to Source.
+
+Above the row detail, show counts and amounts by status, the Ready for review amount, the full source-row amount total, and a check that all statuses sum to that source total and all status counts sum to ten. Label the source total as an import control, not the true liability balance. Keep paid and potentially duplicated rows in that control.
+
+Create a one-page Word briefing from those calculated results: as-of date, amount ready for review, items needing attention with RowIDs, and the next decisions for the AP manager. Call duplicates potential duplicates, not proven duplicate liabilities. This is a review pack, not approval to pay.
+
+Use white backgrounds, charcoal text, and restrained red accents. Make headers readable, freeze the row-detail headers, and provide filters. Use text statuses as well as color. No macros, external data connections, messages, or payments. Provide both downloadable files and tell me if any requested feature could not be created.
+
+PROMPT 3
+
+Check the files you created against the original data and business rules. Inspect the workbook's actual cells and formulas, not just your earlier response. Do not change the original source values to make a check pass.
+
+At October 31, 2026, verify these independent controls:
+- Ten source rows totaling $38,200.
+- Ready for review: AP001, AP002, AP008; three rows totaling $17,400.
+- Duplicate hold: AP005 and AP006; two rows totaling $3,600. Retain both.
+- Approval hold: AP004 and AP010; two rows totaling $7,500.
+- Not due: AP003; one row totaling $3,200.
+- Already paid: AP007; one row totaling $6,500.
+- No amount: AP009; one row totaling $0.
+- All six status groups reconcile to ten rows and $38,200.
+
+AP004 and AP008 share InvoiceNo INV-77 but have different VendorIDs: neither is a duplicate. AP002 is due on the as-of date and must qualify. AP009 must not be treated as missing data.
+
+In a disposable copy, change the as-of date to November 5, 2026 and recalculate: AP003 should become Ready for review, giving four rows totaling $20,600. Other statuses and the $38,200 source control must stay unchanged. Separately test a leading/trailing space and lower-case version of CS-501 in one duplicate row: both rows must remain on Duplicate hold. Restore the original date and data before returning the final workbook.
+
+Reconcile the Word briefing to the final workbook at October 31. Report each check as Passed, Failed, or Not executed, and distinguish inspecting a formula from actually recalculating it. Fix any confirmed errors in the generated calculations or briefing, then give me the corrected files. If your tools cannot execute a check, say so explicitly.
+
+PROMPT 4
+
+Improve the reviewed pack by making the follow-up work clearer. Add Next action and Suggested owner role to each Review row, using this mapping:
+- Ready for review: Review for payment run; AP manager.
+- Duplicate hold: Verify invoice and supporting record; AP analyst.
+- Approval hold: Obtain approval; Budget owner.
+- Not due: Revisit on due date; AP analyst.
+- Already paid: Confirm payment reference; AP analyst.
+- No amount: Check whether the zero-value record should remain; AP analyst.
+
+Use role names only, not invented people. Update the one-page Word briefing with a compact action list grouped by role, including the relevant RowIDs. These are suggested assignments, not tasks sent to anyone.
+
+Keep the October 31, 2026 as-of date, source data, status rules, and every amount unchanged. Recheck the $17,400 Ready for review amount and $38,200 source control, and give me the revised Excel and Word files. State that the Word document is a snapshot and must be regenerated after workbook changes.
+
