@@ -14,7 +14,10 @@ Paste Prompt 1, review the plan, then use Prompts 2-4. Prompt 1 includes the dat
 Use the fixed review date of October 31, 2026. The source-row import control is $38,200; the three Ready for review rows total $17,400. The source control includes paid and potentially duplicated rows and is not the true liability balance. This exercise does not authorize or initiate any payment.
 
 ## Test status
-Prepared November 5, 2026. The data and expected results were checked independently. The prompts were NOT run in Microsoft Copilot Cowork because the available work account displayed an access/usage-plan block. No Cowork-generated workbook or Word briefing is included. File delivery, formula recalculation, and the generated document layout remain unverified in Cowork.
+Tested November 5, 2026 in Microsoft Copilot Cowork using Auto / Medium. All four prompts were run in one task and produced downloadable Excel and Word files. The source values, saved results, formulas, actions, roles, and table filters were independently inspected. The Word briefing opened as one page.
+
+Cowork reported recalculating the scenario tests in LibreOffice. A separate test in Excel for the web confirmed that November 5 gives four Ready for review rows totaling $20,600; restoring October 31 returned $17,400. Your generated layout may differ. Inspect your own files and repeat the checks.
+
+This repository contains the starting files only. The generated example used COUNTIF for duplicate counts; invoice IDs containing wildcard characters would require an additional exact-match check when adapting it to new data.
 
 Created by George Mount, Stringfest Analytics. Fictional practice data only.
-
