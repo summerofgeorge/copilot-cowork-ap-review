@@ -1,0 +1,12 @@
+RowID,VendorID,Vendor,InvoiceNo,DueDate,AmountUSD,Approval,PaymentStatus
+AP001,V001,Northstar Packaging,INV-1042,2026-10-20,12000,Approved,Unpaid
+AP002,V002,Harbor Freight Co,F-883,2026-10-31,4500,Approved,Unpaid
+AP003,V003,Clearview IT,MS-210,2026-11-05,3200,Approved,Unpaid
+AP004,V004,Elm Facilities,INV-77,2026-10-25,2400,Pending,Unpaid
+AP005,V005,Cedar Supplies,CS-501,2026-10-15,1800,Approved,Unpaid
+AP006,V005,Cedar Supplies,CS-501,2026-10-15,1800,Approved,Unpaid
+AP007,V006,Pine Consulting,PC-009,2026-10-10,6500,Approved,Paid
+AP008,V007,Lake Office,INV-77,2026-10-28,900,Approved,Unpaid
+AP009,V008,Beacon Safety,BS-38,2026-10-30,0,Approved,Unpaid
+AP010,V009,Meadow Services,MD-615,2026-10-31,5100,Pending,Unpaid
+
